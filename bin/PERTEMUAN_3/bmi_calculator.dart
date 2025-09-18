@@ -7,9 +7,14 @@ void main() {
   hitungBMI(165, 75, riwayat);
   hitungBMI(180, 85, riwayat);
 
+  tampilkanRiwayat(riwayat);
 }
 
-void hitungBMI(double tinggiCm, double beratKg, List<Map<String, dynamic>> riwayat) {
+void hitungBMI(
+  double tinggiCm,
+  double beratKg,
+  List<Map<String, dynamic>> riwayat,
+) {
   // Konversi tinggi dari cm ke m
   double tinggiM = tinggiCm / 100;
 
@@ -26,5 +31,21 @@ void hitungBMI(double tinggiCm, double beratKg, List<Map<String, dynamic>> riway
     kategori = "Gemuk";
   } else {
     kategori = "Obesitas";
+  }
+
+  // Simpan hasil ke riwayat
+  riwayat.add({
+    'tinggi': tinggiCm,
+    'berat': beratKg,
+    'bmi': bmi,
+    'kategori': kategori,
+  });
+}
+
+void tampilkanRiwayat(List<Map<String, dynamic>> riwayat) {
+  // Melakukan perulangan untuk setiap item di dalam list riwayat
+  for (var data in riwayat) {
+    // Mencetak setiap data ke konsol
+    print(data);
   }
 }
