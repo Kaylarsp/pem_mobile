@@ -29,10 +29,12 @@ void main() {
     return;
   }
 
-  print("Bilangan prima sampai $n adalah:");
+  List<int> primes = [];
   for (int i = 2; i <= n; i++) {
     if (isPrima(i)) {
-      print(i);
+      primes.add(i);
     }
   }
+
+  print("Bilangan prima sampai $n adalah: $primes");
 }
