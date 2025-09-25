@@ -1,5 +1,7 @@
 // TUGAS MANDIRI
 
+import 'dart:io';
+
 bool isPrima(int angka) {
   if (angka < 2) return false;
 
@@ -12,5 +14,13 @@ bool isPrima(int angka) {
 }
 
 void main() {
-  print("Cek angka 7: ${isPrima(7)}");
+  stdout.write("Masukkan angka: ");
+  int n = int.parse(stdin.readLineSync()!);
+
+  print("Bilangan prima sampai $n adalah:");
+  for (int i = 2; i <= n; i++) {
+    if (isPrima(i)) {
+      print(i);
+    }
+  }
 }
