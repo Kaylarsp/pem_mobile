@@ -15,7 +15,18 @@ bool isPrima(int angka) {
 
 void main() {
   stdout.write("Masukkan angka: ");
-  int n = int.parse(stdin.readLineSync()!);
+  String? input = stdin.readLineSync();
+
+  if (input == null || int.tryParse(input) == null) {
+    print("Input tidak valid! Harus berupa angka.");
+    return;
+  }
+
+  int n = int.parse(input);
+  if (n < 2) {
+    print("Tidak ada bilangan prima kurang dari 2.");
+    return;
+  }
 
   print("Bilangan prima sampai $n adalah:");
   for (int i = 2; i <= n; i++) {
